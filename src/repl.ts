@@ -120,6 +120,7 @@ export interface CreateReplOptions {
   stdin?: NodeJS.ReadableStream;
   stdout?: NodeJS.WritableStream;
   stderr?: NodeJS.WritableStream;
+  useGlobal?: boolean;
   /** @internal */
   composeWithEvalAwarePartialHost?: EvalAwarePartialHost;
   /**
@@ -355,7 +356,7 @@ export function createRepl(options: CreateReplOptions = {}) {
       // Mimicking node's REPL implementation: https://github.com/nodejs/node/blob/168b22ba073ee1cbf8d0bcb4ded7ff3099335d04/lib/internal/repl.js#L28-L30
       terminal: (stdout as tty.WriteStream).isTTY && !parseInt(env.NODE_NO_READLINE!, 10),
       eval: nodeEval,
-      useGlobal: true,
+      useGlobal: options?.useGlobal,
       ...optionsOverride,
     });
 

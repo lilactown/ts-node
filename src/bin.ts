@@ -469,6 +469,7 @@ function phase4(payload: BootstrapState) {
         state,
         composeWithEvalAwarePartialHost: evalAwarePartialHost,
         ignoreDiagnosticsThatAreAnnoyingInInteractiveRepl: false,
+        useGlobal: true,
       }),
     };
     ({ evalAwarePartialHost } = evalStuff.repl);
@@ -485,6 +486,7 @@ function phase4(payload: BootstrapState) {
         state,
         composeWithEvalAwarePartialHost: evalAwarePartialHost,
         ignoreDiagnosticsThatAreAnnoyingInInteractiveRepl: false,
+        useGlobal: true,
       }),
     };
     ({ evalAwarePartialHost } = stdinStuff.repl);
